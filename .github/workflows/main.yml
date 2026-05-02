@@ -22,10 +22,15 @@ jobs:
       run: mvn clean package -DskipTests
 
     - name: Build Docker Image and Run Containers
-      run: docker-compose up -d --build
+      run: docker compose up -d --build
 
-    - name: Verify Container is Running
+    - name: Wait for Application Startup
       run: |
-        echo "Waiting for Spring Boot to start..."
-        sleep 15
-        curl -v http://localhost:8085/api/test
+        echo "Waiting for Spring Boot and MongoDB to start..."
+        sleep 20
+
+    - name: Verify Running Containers
+      run: docker ps
+
+    - name: Test API Endpoint
+      run: curl -f http://localhost:8085/api/test
