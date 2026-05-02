@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🩸 Blood Donation & Emergency Matching</h1>
+            <p>Save lives by donating or find donors instantly.</p>
+        </header>
+        <main class="grid-layout">
+            <!-- Register Form -->
+            <section class="glass-card">
+                <h2>Register as Donor</h2>
+                <form id="registerForm">
+                    <div class="input-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" required placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label for="regBloodGroup">Blood Group</label>
+                        <select id="regBloodGroup" required>
+                            <option value="" disabled selected>Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="regCity">City</label>
+                        <input type="text" id="regCity" required placeholder="New York">
+                    </div>
+                    <button type="submit" class="btn primary-btn">Register Now</button>
+                </form>
+                <div id="registerMsg" class="msg hidden"></div>
+            </section>
+            <!-- Search Form -->
+            <section class="glass-card">
+                <h2>Find a Donor</h2>
+                <form id="searchForm">
+                    <div class="input-group">
+                        <label for="searchBloodGroup">Blood Group Needed</label>
+                        <select id="searchBloodGroup" required>
+                            <option value="" disabled selected>Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="searchCity">City</label>
+                        <input type="text" id="searchCity" required placeholder="New York">
+                    </div>
+                    <button type="submit" class="btn secondary-btn">Search Donors</button>
+                </form>
+
+                <div id="resultsContainer" class="results-container hidden">
+                    <h3>Matching Donors</h3>
+                    <ul id="donorList"></ul>
+                </div>
+                <div id="searchMsg" class="msg hidden"></div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

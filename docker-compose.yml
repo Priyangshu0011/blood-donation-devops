@@ -1,11 +1,9 @@
-version: '3.8'
-
 services:
   mongo:
     image: mongo:latest
     container_name: mongo
-    ports:
-      - "27017:27017"
+    networks:
+      - bloodnet
 
   app:
     build: .
@@ -14,3 +12,19 @@ services:
       - "8085:8085"
     depends_on:
       - mongo
+    networks:
+      - bloodnet
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3001:80"
+    depends_on:
+      - app
+    networks:
+      - bloodnet
+
+networks:
+  bloodnet:
+    driver: bridge
